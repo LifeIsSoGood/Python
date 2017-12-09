@@ -1,4 +1,4 @@
-arr1=[1,3,5,7,9,11]
+arr1=[1,2,3,4,5,6]
 arr2=[2,3,4,6,8]
 arr3=[]
 
@@ -19,5 +19,19 @@ def fn(arr1,arr2):
             arr3.extend(arr1)
     return
 
-fn(arr1, arr2)
+def join(arr1,arr2):
+    arr1.extend(arr2)
+    return arr1
+
+if(len(arr1) and len(arr2)):
+    if arr1[-1] <= arr2[0]:
+        join(arr3,join(arr1,arr2))
+
+    elif arr2[-1] <= arr1[0]:
+        join(arr3,join(arr2,arr1))
+    else:
+        fn(arr1, arr2)
+else:
+    join(arr3,join(arr1,arr2))
+
 print(arr3)
